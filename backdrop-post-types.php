@@ -18,6 +18,9 @@
 /**
  * 1.0 - Forbidden Access
  */
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 /**
  * 2.0 - Required Files
