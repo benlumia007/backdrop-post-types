@@ -39,12 +39,10 @@ class CustomPostTypes {
 	/**
 	 * Construct.
 	 */
-	public function __construct( $text_domain ) {
-		$this->text_domain = $text_domain;
-
+	public function __construct() {
 		$this->posts = array();
 
-		add_action( 'init', array( &$this, 'register_custom_post_types' ) );
+		add_action( 'init', array( $this, 'register_custom_post_types' ) );
 	}
 
 	public function register_custom_post_types() {
@@ -56,20 +54,20 @@ class CustomPostTypes {
 	public function create_post( $type, $singular_label, $plural_label, $settings = array() ) {
 		$default = array(
 			$labels = array(
-				'name'               => esc_html( $plural_label, $this->text_domain ),
-				'singular_name'      => esc_html( $singular_label, $this->text_domain ),
-				'add_new'            => esc_html( 'Add New' . $singular_label, $this->text_domain ),
-				'add_new_item'       => esc_html( 'Add New' . $singular_label . 'Item', $this->text_domain ),
-				'edit_item'          => esc_html( 'Edit' . $singular_label . 'Item', $this->text_domain ),
-				'new_item'           => esc_html( 'New' . $singular_label . 'Item', $this->text_domain ),
-				'view_item'          => esc_html( 'View' . $singular_label . 'Item', $this->text_domain ),
-				'search_items'       => esc_html( 'Search' . $singular_label . 'Item', $this->text_domain ),
-				'not_found'          => esc_html( 'Not Found', $this->text_domain ),
-				'not_found_in_trash' => esc_html( 'Not Found in Trash', $this->text_domain ),
-				'name_admin_bar'     => esc_html( $singular_label, $this->text_domain ),
-				'parent_item_colon'  => esc_html( 'Parent Item: ', $this->text_domain ),
+				'name'               => esc_html( $plural_label, 'backdrop-post-types' ),
+				'singular_name'      => esc_html( $singular_label, 'backdrop-post-types' ),
+				'add_new'            => esc_html( 'Add New ' . $singular_label, 'backdrop-post-types' ),
+				'add_new_item'       => esc_html( 'Add New ' . $singular_label . 'Item', 'backdrop-post-types' ),
+				'edit_item'          => esc_html( 'Edit' . $singular_label . 'Item', 'backdrop-post-types' ),
+				'new_item'           => esc_html( 'New' . $singular_label . 'Item', 'backdrop-post-types' ),
+				'view_item'          => esc_html( 'View' . $singular_label . 'Item', 'backdrop-post-types' ),
+				'search_items'       => esc_html( 'Search' . $singular_label . 'Item', 'backdrop-post-types' ),
+				'not_found'          => esc_html( 'Not Found', 'backdrop-post-types' ),
+				'not_found_in_trash' => esc_html( 'Not Found in Trash', 'backdrop-post-types' ),
+				'name_admin_bar'     => esc_html( $singular_label, 'backdrop-post-types' ),
+				'parent_item_colon'  => esc_html( 'Parent Item: ', 'backdrop-post-types' ),
 			),
-			'label'       => $labels,
+			'labels'      => $labels,
 			'public'      => true,
 			'has_archive' => true,
 			'supports'    => array( 'title', 'editor', 'thumbnail' ),
@@ -80,6 +78,6 @@ class CustomPostTypes {
 	}
 }
 
-$portfolio = new CustomPostTypes( 'test' );
+$portfolio = new CustomPostTypes( 'portfolio' );
 
-$portfolio->create_post( 'test', 'test', 'tests' );
+$portfolio->create_post( 'portfolio', 'Portfolio', 'Portfolios' );
