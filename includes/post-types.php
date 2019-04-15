@@ -94,7 +94,3 @@ class CustomPostTypes {
 		$this->posts[ $type ] = array_merge( $default, $settings );
 	}
 }
-
-$portfolio = new CustomPostTypes( 'portfolio' );
-$portfolio->create_post( 'portfolio', 'Portfolio', 'Portfolios' );
-$portfolio->register();
