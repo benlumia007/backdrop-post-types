@@ -34,11 +34,6 @@ class CustomPostTypes {
 	protected $posts;
 
 	/**
-	 * Posts.
-	 */
-	protected $categories;
-
-	/**
 	 * Construct.
 	 */
 	public function register() {
@@ -104,26 +99,26 @@ class CustomPostTypes {
 		$this->posts[ $type ] = array_merge( $labels, $args );
 	}
 
-	public function register_custom_post_types_category() {
+	public function register_custom_post_types_category( $type ) {
 
 		$labels = array(
-			'name'                       => _x( 'Categories', 'Taxonomy General Name', 'latte' ),
-			'singular_name'              => _x( 'Category', 'Taxonomy Singular Name', 'latte' ),
-			'menu_name'                  => __( 'Categories', 'latte' ),
-			'all_items'                  => __( 'All Categories', 'latte' ),
-			'parent_item'                => __( 'Parent Category', 'latte' ),
-			'parent_item_colon'          => __( 'Parent Category:', 'latte' ),
-			'new_item_name'              => __( 'New Category Name', 'latte' ),
-			'add_new_item'               => __( 'Add New Category', 'latte' ),
-			'edit_item'                  => __( 'Edit Categories', 'latte' ),
-			'update_item'                => __( 'Update Categories', 'latte' ),
-			'view_item'                  => __( 'View Categories', 'latte' ),
-			'separate_items_with_commas' => __( 'Separate categories with commas', 'latte' ),
-			'add_or_remove_items'        => __( 'Add or remove categories', 'latte' ),
-			'choose_from_most_used'      => __( 'Choose from the most used', 'latte' ),
-			'popular_items'              => __( 'Popular Categories', 'latte' ),
-			'search_items'               => __( 'Search Categories', 'latte' ),
-			'not_found'                  => __( 'Not Found', 'latte' ),
+			'name'                       => _x( 'Categories', 'Taxonomy General Name', 'backdrop-post-types' ),
+			'singular_name'              => _x( 'Category', 'Taxonomy Singular Name', 'backdrop-post-types' ),
+			'menu_name'                  => __( 'Categories', 'backdrop-post-types' ),
+			'all_items'                  => __( 'All Categories', 'backdrop-post-types' ),
+			'parent_item'                => __( 'Parent Category', 'backdrop-post-types' ),
+			'parent_item_colon'          => __( 'Parent Category:', 'backdrop-post-types' ),
+			'new_item_name'              => __( 'New Category Name', 'backdrop-post-types' ),
+			'add_new_item'               => __( 'Add New Category', 'backdrop-post-types' ),
+			'edit_item'                  => __( 'Edit Categories', 'backdrop-post-types' ),
+			'update_item'                => __( 'Update Categories', 'backdrop-post-types' ),
+			'view_item'                  => __( 'View Categories', 'backdrop-post-types' ),
+			'separate_items_with_commas' => __( 'Separate categories with commas', 'backdrop-post-types' ),
+			'add_or_remove_items'        => __( 'Add or remove categories', 'backdrop-post-types' ),
+			'choose_from_most_used'      => __( 'Choose from the most used', 'backdrop-post-types' ),
+			'popular_items'              => __( 'Popular Categories', 'backdrop-post-types' ),
+			'search_items'               => __( 'Search Categories', 'backdrop-post-types' ),
+			'not_found'                  => __( 'Not Found', 'backdrop-post-types' ),
 		);
 
 		$args = array(
@@ -135,7 +130,7 @@ class CustomPostTypes {
 			'show_in_nav_menus' => false,
 			'show_tagcloud'     => false,
 		);
-		register_taxonomy( $this->posts[ $type] . '_category', array( $type ), $args );
+		register_taxonomy( $type . '_category', array( $type ), $args );
 	}
 }
 
