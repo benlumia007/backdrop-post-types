@@ -25,7 +25,7 @@ namespace Benlumia007\BackdropPostTypes;
  * @param string $text_domain text domain.
  * @param string $post post.
  */
-class BackdropPostTypes {
+class CustomPostTypes {
 	/**
 	 * $text_domain.
 	 */
@@ -44,12 +44,12 @@ class BackdropPostTypes {
 
 		$this->posts = array();
 
-		add_action( 'init', array( $this, 'register_custom_post_types' ) );
+		add_action( 'init', array( &$this, 'register_custom_post_types' ) );
 	}
 
 	public function register_custom_post_types() {
-		foreach ( $this->posts as $post => $value ) {
-			register_post_type( $post, $value );
+		foreach ( $this->posts as $key => $value ) {
+			register_post_type( $key, $value );
 		}
 	}
 
@@ -65,10 +65,11 @@ class BackdropPostTypes {
 				'view_item'          => esc_html( 'View' . $singular_label . 'Item', $this->text_domain ),
 				'search_items'       => esc_html( 'Search' . $singular_label . 'Item', $this->text_domain ),
 				'not_found'          => esc_html( 'Not Found', $this->text_domain ),
-				'not_found_in_trash' => esc_html( 'Not Found in Trash', $this->text_doamin ),
+				'not_found_in_trash' => esc_html( 'Not Found in Trash', $this->text_domain ),
 				'name_admin_bar'     => esc_html( $singular_label, $this->text_domain ),
 				'parent_item_colon'  => esc_html( 'Parent Item: ', $this->text_domain ),
 			),
+			'label'       => $labels,
 			'public'      => true,
 			'has_archive' => true,
 			'supports'    => array( 'title', 'editor', 'thumbnail' ),
@@ -78,3 +79,7 @@ class BackdropPostTypes {
 		$this->posts[ $type ] = array_merge( $default, $settings );
 	}
 }
+
+$portfolio = new CustomPostTypes( 'test' );
+
+$portfolio->create_post( 'test', 'test', 'tests' );
