@@ -1,6 +1,14 @@
 <?php
 /**
  * Plugin Name: Backdrop Post Types
+ * Author: Benjamin Lu
+ * Author URI: https://benjlu.com
+ * Description: Backdrop Post Types registers post types of your choice.
+ * License: GNU General Public License v2 or later
+ * License URI: http://www.gnu.org/licenses/gpl-2.0.html
+ * Domain Path: /languages
+ * Text Domain: backdrop-post-types
+ * Version: 1.0.0
  *
  * @package     Backdrop Post Types
  * @copyright   Copyright (C) 2019. Benjamin Lu
