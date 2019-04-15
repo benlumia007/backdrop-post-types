@@ -39,9 +39,7 @@ class CustomPostTypes {
 	/**
 	 * Construct.
 	 */
-	public function __construct() {
-		$this->posts = array();
-
+	public function register() {
 		add_action( 'init', array( $this, 'register_custom_post_types' ) );
 	}
 
@@ -54,18 +52,31 @@ class CustomPostTypes {
 	public function create_post( $type, $singular_label, $plural_label, $settings = array() ) {
 		$default = array(
 			$labels = array(
-				'name'               => esc_html( $plural_label, 'backdrop-post-types' ),
-				'singular_name'      => esc_html( $singular_label, 'backdrop-post-types' ),
-				'add_new'            => esc_html( 'Add New ' . $singular_label, 'backdrop-post-types' ),
-				'add_new_item'       => esc_html( 'Add New ' . $singular_label . 'Item', 'backdrop-post-types' ),
-				'edit_item'          => esc_html( 'Edit' . $singular_label . 'Item', 'backdrop-post-types' ),
-				'new_item'           => esc_html( 'New' . $singular_label . 'Item', 'backdrop-post-types' ),
-				'view_item'          => esc_html( 'View' . $singular_label . 'Item', 'backdrop-post-types' ),
-				'search_items'       => esc_html( 'Search' . $singular_label . 'Item', 'backdrop-post-types' ),
-				'not_found'          => esc_html( 'Not Found', 'backdrop-post-types' ),
-				'not_found_in_trash' => esc_html( 'Not Found in Trash', 'backdrop-post-types' ),
-				'name_admin_bar'     => esc_html( $singular_label, 'backdrop-post-types' ),
-				'parent_item_colon'  => esc_html( 'Parent Item: ', 'backdrop-post-types' ),
+				'name'               => $plural_label,
+				'singular_name'      => $singular_label,
+
+				/* Translators: a single label for a post type */
+				'add_new'            => sprintf( __( 'Add New %s', 'backdrop-post-types' ), $singular_label ),
+
+				/* Translators: a single label for a post type */
+				'add_new_item'       => sprintf( __( 'Add New %s Item', 'backdrop-post-types' ), $singular_label ),
+
+				/* Translators: a single label for a post type */
+				'edit_item'          => sprintf( __( 'Edit %s Item', 'backdrop-post-types' ), $singular_label ),
+
+				/* Translators: a single label for a post type */
+				'new_item'           => sprintf( __( 'New %s Item' ), $singular_label ),
+
+				/* Translators: a single label for a post type */
+				'view_item'          => sprintf( __( 'View %s Item', 'backdrop-post-types' ), $singular_label ),
+
+				/* Translators: a single label for a post type */
+				'search_items'       => sprintf( __( 'Search %s Item', 'backdrop-post-types' ), $singular_label ),
+
+				'not_found'          => esc_html__( 'Not Found', 'backdrop-post-types' ),
+				'not_found_in_trash' => esc_html__( 'Not Found in Trash', 'backdrop-post-types' ),
+				'name_admin_bar'     => $singular_label,
+				'parent_item_colon'  => esc_html__( 'Parent Item: ', 'backdrop-post-types' ),
 			),
 			'labels'      => $labels,
 			'public'      => true,
@@ -79,5 +90,5 @@ class CustomPostTypes {
 }
 
 $portfolio = new CustomPostTypes( 'portfolio' );
-
 $portfolio->create_post( 'portfolio', 'Portfolio', 'Portfolios' );
+$portfolio->register();
