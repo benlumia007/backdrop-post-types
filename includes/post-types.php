@@ -97,14 +97,14 @@ class CustomPostTypes {
 			'has_archive' => true,
 			'menu_icon'   => 'dashicons-category',
 			'supports'    => array( 'title', 'editor', 'thumbnail' ),
-			'taxonomies'  => array( $this->posts[ $type ] ),
+			'taxonomies'  => array( $this->posts[ $type ] . '_category' ),
 			'show_ui'     => true,
 		);
 
 		$this->posts[ $type ] = array_merge( $labels, $args );
 	}
 
-	public function register_custom_post_types_category( $type ) {
+	public function register_custom_post_types_category() {
 
 		$labels = array(
 			'name'                       => _x( 'Categories', 'Taxonomy General Name', 'latte' ),
@@ -135,7 +135,7 @@ class CustomPostTypes {
 			'show_in_nav_menus' => false,
 			'show_tagcloud'     => false,
 		);
-		register_taxonomy( $this->posts[ $type ], array( $this->posts[ $type ] ), $args );
+		register_taxonomy( $this->posts[ $type] . '_category', array( $type ), $args );
 	}
 }
 
