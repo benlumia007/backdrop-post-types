@@ -27,11 +27,6 @@ namespace Benlumia007\BackdropPostTypes;
  */
 class CustomPostTypes {
 	/**
-	 * $text_domain.
-	 */
-	protected $text_domain;
-
-	/**
 	 * $post post.
 	 */
 	protected $posts;
@@ -43,12 +38,23 @@ class CustomPostTypes {
 		add_action( 'init', array( $this, 'register_custom_post_types' ) );
 	}
 
+	/**
+	 * Register Custom Post Types.
+	 */
 	public function register_custom_post_types() {
 		foreach ( $this->posts as $key => $value ) {
 			register_post_type( $key, $value );
 		}
 	}
 
+	/**
+	 * Create Posts by create_post().
+	 *
+	 * @param string $type a post type.
+	 * @param string $singular_label a single label.
+	 * @param string $plural_label a more than one.
+	 * @param array  $settings stores post in an array.
+	 */
 	public function create_post( $type, $singular_label, $plural_label, $settings = array() ) {
 		$default = array(
 			$labels = array(
