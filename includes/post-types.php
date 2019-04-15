@@ -50,13 +50,13 @@ class CustomPostTypes {
 	}
 
 	/**
-	 * Create Posts by create_post().
+	 * Create Posts by create_post_type().
 	 *
 	 * @param string $type a post type.
 	 * @param string $singular_label a single label.
 	 * @param string $plural_label a more than one.
 	 */
-	public function create_post( $type, $singular_label, $plural_label ) {
+	public function create_post_type( $type, $singular_label, $plural_label ) {
 		$labels = array(
 			'name'               => $plural_label,
 			'singular_name'      => $singular_label,
@@ -96,7 +96,3 @@ class CustomPostTypes {
 		$this->posts[ $type ] = array_merge( $labels, $args );
 	}
 }
-
-$portfolio = new CustomPostTypes( 'portfolio' );
-$portfolio->create_post( 'portfolio', 'Portfolio', 'Portfolios' );
-$portfolio->register();
