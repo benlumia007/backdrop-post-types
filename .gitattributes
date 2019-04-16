@@ -26,6 +26,4 @@
 /.git               export-ignore
 /.gitattributes     export-ignore
 /.gitignore         export-ignore
-/composer.json      export-ignore
-/composer.lock      export-ignore
 /.editorconfig      export-ignore
