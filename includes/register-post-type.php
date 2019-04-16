@@ -25,7 +25,7 @@ namespace Benlumia007\BackdropPostTypes;
  * @param string $text_domain text domain.
  * @param string $post post.
  */
-class CustomPostTypes {
+class RegisterPostType {
 	/**
 	 * $post post.
 	 *
@@ -108,6 +108,11 @@ class CustomPostTypes {
 		$this->posts[ $type ] = array_merge( $labels, $args );
 	}
 
+	/**
+	 * Custom Post Types ( Category )
+	 *
+	 * @param string $type Category.
+	 */
 	public function create_custom_post_types_category( $type ) {
 		$labels = array(
 			'name'                       => _x( 'Categories', 'Taxonomy General Name', 'backdrop-post-types' ),
@@ -141,11 +146,3 @@ class CustomPostTypes {
 		register_taxonomy( $type . '_category', array( $type ), $args );
 	}
 }
-
-$portfolio = new CustomPostTypes( 'portfolio' );
-$portfolio->create_post_type( 'portfolio', 'Portoflio', 'Portfolios' );
-$portfolio->register();
-
-$portfolio = new CustomPostTypes( 'theme' );
-$portfolio->create_post_type( 'theme', 'Theme', 'Themes' );
-$portfolio->register();

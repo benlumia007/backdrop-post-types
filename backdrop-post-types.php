@@ -21,6 +21,7 @@
  *
  * 1.0 - Forbidden Access
  * 2.0 - Required Files
+ * 3.0 - Register Default Post Type
  */
 
 /**
@@ -33,4 +34,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * 2.0 - Required Files
  */
-require_once plugin_dir_path( __FILE__ ) . '/includes/post-types.php';
+require_once plugin_dir_path( __FILE__ ) . '/includes/register-post-type.php';
+
+/**
+ * 3.0 - Register Default Post Type
+ */
+function register_post_type_portfolio() {
+	if ( ! apply_filters( 'register_portfolio_override', false ) ) {
+		$portfolio = new \Benlumia007\BackdropPostTypes\RegisterPostType( 'portfolio' );
+		$portfolio->create_post_type( 'portfolio', 'Portfolio', 'Portfolios' );
+		$portfolio->register();
+	}
+}
+add_action( 'init', 'register_post_type_portfolio' );
