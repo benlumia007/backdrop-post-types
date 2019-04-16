@@ -31,6 +31,13 @@ $demo->register();
 2.0 - Click Upload and Choose File, then select the theme's ZIP file. Click Install Now.
 3.0 - Click Activate to use your new plugin right away.
 
+== Frequently Asked Questions ==
+How to disabled the default post type ( portoflio )
+add_filter( 'backdrop_post_types_override_portfolio', '__return_true' );
+
+== Upgrade Notice == 
+No Upgrades at the moment
+
 == Changelog ==
 = 1.0.0 = 
 *Release Date: April 16, 2019*
