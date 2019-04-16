@@ -21,12 +21,13 @@
  */
 namespace Benlumia007\BackdropPostTypes;
 
- /**
+/**
  * Table of Content
  *
  * 1.0 - Forbidden Access
  * 2.0 - Required Files
  * 3.0 - Register Default Post Type
+ * 4.0 - Plugin Text Domain
  */
 
 /**
@@ -52,3 +53,11 @@ function backdrop_post_types_register_portfolio() {
 	}
 }
 add_action( 'init', __NAMESPACE__ . '\backdrop_post_types_register_portfolio', 5 );
+
+/**
+ * 4.0 - Plugin Text Domain
+ */
+function backdrop_post_types_load_textdomain() {
+	load_plugin_textdomain( 'backdrop-post-types', false, basename( dirname( __FILE__ ) ) . '/languages' );
+}
+add_action( 'plugins_loaded', __NAMESPACE__ . '\backdrop_post_types_load_textdomain' );
