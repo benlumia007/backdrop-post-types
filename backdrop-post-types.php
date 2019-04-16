@@ -44,6 +44,11 @@ require_once plugin_dir_path( __FILE__ ) . '/includes/register-post-type.php';
 
 /**
  * 3.0 - Register Default Post Type
+ *
+ * By default when this plugin is activated, it will automatically creates a new post type ( portoflio ).
+ * This will allow users to use portfolio but can also be disabled by using an add_filter();
+ *
+ * add_filter( 'backdrop_post_types_override_portfolio', '__return_true' ); to disable portfolio post type.
  */
 function backdrop_post_types_register_portfolio() {
 	if ( ! apply_filters( 'backdrop_post_types_override_portfolio', false ) ) {
