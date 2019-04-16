@@ -96,13 +96,14 @@ class PostType {
 		);
 
 		$args = array(
-			'labels'      => $labels,
-			'public'      => true,
-			'has_archive' => true,
-			'menu_icon'   => 'dashicons-category',
-			'supports'    => array( 'title', 'editor', 'thumbnail' ),
-			'taxonomies'  => array( $this->posts[ $type ] . '_category' ),
-			'show_ui'     => true,
+			'labels'       => $labels,
+			'public'       => true,
+			'has_archive'  => true,
+			'menu_icon'    => 'dashicons-category',
+			'supports'     => array( 'title', 'editor', 'thumbnail' ),
+			'taxonomies'   => array( $this->posts[ $type ] . '_category' ),
+			'show_ui'      => true,
+			'show_in_rest' => true,
 		);
 
 		$this->posts[ $type ] = array_merge( $labels, $args );
@@ -142,6 +143,7 @@ class PostType {
 			'show_admin_column' => true,
 			'show_in_nav_menus' => false,
 			'show_tagcloud'     => false,
+			'show_in_rest'      => true,
 		);
 		register_taxonomy( $type . '_category', array( $type ), $args );
 	}
