@@ -39,11 +39,11 @@ require_once plugin_dir_path( __FILE__ ) . '/includes/register-post-type.php';
 /**
  * 3.0 - Register Default Post Type
  */
-function register_post_type_portfolio() {
-	if ( ! apply_filters( 'register_portfolio_override', false ) ) {
+function backdrop_post_types_register_portfolio() {
+	if ( ! apply_filters( 'backdrop_post_types_override_portfolio', false ) ) {
 		$portfolio = new \Benlumia007\BackdropPostTypes\RegisterPostType( 'portfolio' );
 		$portfolio->create_post_type( 'portfolio', 'Portfolio', 'Portfolios' );
 		$portfolio->register();
 	}
 }
-add_action( 'init', 'register_post_type_portfolio' );
+add_action( 'init', 'backdrop_post_types_register_portfolio' );
