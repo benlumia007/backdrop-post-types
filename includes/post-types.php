@@ -100,7 +100,6 @@ class CustomPostTypes {
 	}
 
 	public function register_custom_post_types_category( $type ) {
-
 		$labels = array(
 			'name'                       => _x( 'Categories', 'Taxonomy General Name', 'backdrop-post-types' ),
 			'singular_name'              => _x( 'Category', 'Taxonomy Singular Name', 'backdrop-post-types' ),
