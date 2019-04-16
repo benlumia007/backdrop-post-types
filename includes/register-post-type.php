@@ -11,7 +11,7 @@
 /**
  * Define Namespace
  */
-namespace Benlumia007\BackdropPostTypes;
+namespace Benlumia007\BackdropPostTypes\Register;
 
 /**
  * Table of Content
@@ -25,7 +25,7 @@ namespace Benlumia007\BackdropPostTypes;
  * @param string $text_domain text domain.
  * @param string $post post.
  */
-class RegisterPostType {
+class PostType {
 	/**
 	 * $post post.
 	 *

@@ -46,7 +46,7 @@ require_once plugin_dir_path( __FILE__ ) . '/includes/register-post-type.php';
  */
 function backdrop_post_types_register_portfolio() {
 	if ( ! apply_filters( 'backdrop_post_types_override_portfolio', false ) ) {
-		$portfolio = new \Benlumia007\BackdropPostTypes\RegisterPostType( 'portfolio' );
+		$portfolio = new \Benlumia007\BackdropPostTypes\Register\PostType( 'portfolio' );
 		$portfolio->create_post_type( 'portfolio', 'Portfolio', 'Portfolios' );
 		$portfolio->register();
 	}
