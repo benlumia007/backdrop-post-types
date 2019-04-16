@@ -51,4 +51,4 @@ function backdrop_post_types_register_portfolio() {
 		$portfolio->register();
 	}
 }
-add_action( 'init', __NAMESPACE__ . '\backdrop_post_types_register_portfolio' );
+add_action( 'init', __NAMESPACE__ . '\backdrop_post_types_register_portfolio', 5 );
