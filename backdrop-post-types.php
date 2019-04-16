@@ -17,6 +17,11 @@
  */
 
 /**
+ * Define namespace
+ */
+namespace Benlumia007\BackdropPostTypes;
+
+ /**
  * Table of Content
  *
  * 1.0 - Forbidden Access
@@ -46,4 +51,4 @@ function backdrop_post_types_register_portfolio() {
 		$portfolio->register();
 	}
 }
-add_action( 'init', 'backdrop_post_types_register_portfolio' );
+add_action( 'init', __NAMESPACE__ . '\backdrop_post_types_register_portfolio' );
