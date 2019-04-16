@@ -38,7 +38,7 @@ class CustomPostTypes {
 	 */
 	public function register() {
 		add_action( 'init', array( $this, 'register_custom_post_types' ) );
-		add_action( 'init', array( $this, 'register_custom_post_types_category' ) );
+		add_action( 'init', array( $this, 'register_custom_post_taxonomies' ) );
 	}
 
 	/**
@@ -47,6 +47,15 @@ class CustomPostTypes {
 	public function register_custom_post_types() {
 		foreach ( $this->posts as $key => $value ) {
 			register_post_type( $key, $value );
+		}
+	}
+
+	/**
+	 * Register Custom Taxonomies
+	 */
+	public function register_custom_post_taxonomies() {
+		foreach ( $this->posts as $key => $value ) {
+			$this->create_custom_post_types_category( $key );
 		}
 	}
 
@@ -99,7 +108,7 @@ class CustomPostTypes {
 		$this->posts[ $type ] = array_merge( $labels, $args );
 	}
 
-	public function register_custom_post_types_category( $type ) {
+	public function create_custom_post_types_category( $type ) {
 		$labels = array(
 			'name'                       => _x( 'Categories', 'Taxonomy General Name', 'backdrop-post-types' ),
 			'singular_name'              => _x( 'Category', 'Taxonomy Singular Name', 'backdrop-post-types' ),
