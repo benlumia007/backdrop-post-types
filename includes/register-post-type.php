@@ -22,7 +22,6 @@ namespace Benlumia007\BackdropPostTypes\Register;
 /**
  * 1.0 - Backdrop Post Types
  *
- * @param string $text_domain text domain.
  * @param string $post post.
  */
 class PostType {
