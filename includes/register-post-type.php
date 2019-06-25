@@ -102,6 +102,9 @@ class PostType {
 			'supports'     => array( 'title', 'editor', 'thumbnail' ),
 			'taxonomies'   => array( $this->posts[ $type ] . '_category' ),
 			'show_ui'      => true,
+			'rewrite'      => array(
+				'with_front' => false,
+			),
 			'show_in_rest' => true,
 		);
 
