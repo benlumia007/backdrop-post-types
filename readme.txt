@@ -4,7 +4,7 @@ Donate link: https://benjlu.com
 Tags: post-types
 Requires at least: 5.0
 Tested up to: 5.2
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 Requires PHP: 7.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -39,6 +39,9 @@ add_filter( 'backdrop_post_types_override_portfolio', '__return_true' );
 No Upgrades at the moment
 
 == Changelog ==
+= 1.0.1 =
+added with_front = false
+
 = 1.0.0 = 
 *Release Date: April 16, 2019*
 
