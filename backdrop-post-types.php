@@ -8,7 +8,7 @@
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  * Domain Path: /languages
  * Text Domain: backdrop-post-types
- * Version: 1.0.0
+ * Version: 1.0.1
  *
  * @package     Backdrop Post Types
  * @copyright   Copyright (C) 2019. Benjamin Lu
