@@ -1,0 +1,22 @@
+{
+    "name": "benlumia007/backdrop-post-types",
+    "description": "backdrop-post-types is custom WordPress theme for https://backdrop-post-types.com.",
+    "keywords": [
+        "wordpress",
+        "wordpress-theme"
+    ],
+    "homepage": "https://github.com/benlumia007/backdrop-post-types",
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "Benjamin Lu",
+            "email": "benlumia007@gmail.com",
+            "homepage": "https://getbenonit.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Benlumia007\\Backdrop\\": "src"
+		}
+    }
+}
