@@ -52,14 +52,11 @@ if ( file_exists( plugin_dir_path( __FILE__ ) . '/vendor/autoload.php' ) ) {
  *
  * add_filter( 'backdrop_post_types_override_portfolio', '__return_true' ); to disable portfolio post type.
  */
-function backdrop_post_types_register_portfolio() {
-	if ( ! apply_filters( 'backdrop_post_types_override_portfolio', false ) ) {
-		$portfolio = new \Benlumia007\Backdrop\PostTypes\Register();
-		$portfolio->create_post_type( 'portfolio', 'Portfolio', 'Portfolios' );
-		$portfolio->init();
-	}
+if ( ! apply_filters( 'backdrop_post_types_override_portfolio', false ) ) {
+	$portfolio = new \Benlumia007\Backdrop\PostTypes\Register();
+	$portfolio->create_post_type( 'portfolio', 'Portfolio', 'Portfolios' );
+	$portfolio->init();
 }
-add_action( 'init', __NAMESPACE__ . '\backdrop_post_types_register_portfolio', 5 );
 
 /**
  * 4.0 - Plugin Text Domain

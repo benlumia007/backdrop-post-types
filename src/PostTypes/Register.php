@@ -110,7 +110,7 @@ class Register extends PostTypesContracts {
 			'show_in_rest' => true,
 		);
 
-		$this->posts[ $type ] = array_merge( $labels, $args );
+		$this->posts[ 'backdrop-' . $type ] = array_merge( $labels, $args );
 	}
 
 	/**
