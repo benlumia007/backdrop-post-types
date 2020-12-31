@@ -3,7 +3,7 @@
     "description": "backdrop-post-types is custom WordPress theme for https://backdrop-post-types.com.",
     "keywords": [
         "wordpress",
-        "wordpress-theme"
+        "wordpress-plugin"
     ],
     "homepage": "https://github.com/benlumia007/backdrop-post-types",
     "license": "GPL-2.0-or-later",
@@ -16,7 +16,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "Benlumia007\\Backdrop\\": "src"
+            "Benlumia007\\Backdrop\\": "src/"
 		}
     }
 }

@@ -11,7 +11,9 @@
 /**
  * Define Namespace
  */
-namespace Benlumia007\BackdropPostTypes\Register;
+namespace Benlumia007\Backdrop\PostTypes;
+
+use Benlumia007\Backdrop\Contracts\PostTypes as PostTypesContracts;
 
 /**
  * Table of Content
@@ -24,7 +26,7 @@ namespace Benlumia007\BackdropPostTypes\Register;
  *
  * @param string $post post.
  */
-class PostType {
+class Register extends PostTypesContracts {
 	/**
 	 * $post post.
 	 *
@@ -35,7 +37,7 @@ class PostType {
 	/**
 	 * Construct.
 	 */
-	public function register() {
+	public function init() {
 		add_action( 'init', array( $this, 'register_custom_post_types' ) );
 		add_action( 'init', array( $this, 'register_custom_post_taxonomies' ) );
 	}
@@ -100,7 +102,7 @@ class PostType {
 			'has_archive'  => true,
 			'menu_icon'    => 'dashicons-category',
 			'supports'     => array( 'title', 'editor', 'thumbnail' ),
-			'taxonomies'   => array( $this->posts[ $type ] . '_category' ),
+			'taxonomies'   => array( $type . '_category' ),
 			'show_ui'      => true,
 			'rewrite'      => array(
 				'with_front' => false,

@@ -4,7 +4,7 @@ Donate link: https://benjlu.com
 Tags: post-types
 Requires at least: 5.0
 Tested up to: 5.2
-Stable tag: 1.0.1
+Stable tag: 1.0.4
 Requires PHP: 7.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -21,7 +21,7 @@ add_filter( 'backdrop_post_types_override_portfolio', '__return_true' );
 
 To create a new post type by creating a folder called post-types/demo.php somewhere in your theme and use the following to register a new post type.
 
-$demo = new \Benlumia007\BackdropPostTypes\Register\PostType( 'demo' );
+$demo = new Benlumia007\Backdrop\PostTypes\Register();
 $demo->create_post_type( 'demo', 'Demo', 'Demos' );
 $demo->register();
 

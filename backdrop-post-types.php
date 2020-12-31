@@ -8,7 +8,7 @@
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  * Domain Path: /languages
  * Text Domain: backdrop-post-types
- * Version: 1.0.1
+ * Version: 1.0.4
  *
  * @package     Backdrop Post Types
  * @copyright   Copyright (C) 2019. Benjamin Lu
@@ -19,7 +19,7 @@
 /**
  * Define namespace
  */
-namespace Benlumia007\BackdropPostTypes;
+namespace Benlumia007\Backdrop;
 
 /**
  * Table of Content
@@ -40,7 +40,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * 2.0 - Required Files
  */
-require_once plugin_dir_path( __FILE__ ) . '/includes/register-post-type.php';
+if ( file_exists( plugin_dir_path( __FILE__ ) . '/vendor/autoload.php' ) ) {
+	require_once plugin_dir_path( __FILE__ ) . '/vendor/autoload.php';
+}
 
 /**
  * 3.0 - Register Default Post Type
@@ -52,9 +54,9 @@ require_once plugin_dir_path( __FILE__ ) . '/includes/register-post-type.php';
  */
 function backdrop_post_types_register_portfolio() {
 	if ( ! apply_filters( 'backdrop_post_types_override_portfolio', false ) ) {
-		$portfolio = new \Benlumia007\BackdropPostTypes\Register\PostType( 'portfolio' );
+		$portfolio = new \Benlumia007\Backdrop\PostTypes\Register();
 		$portfolio->create_post_type( 'portfolio', 'Portfolio', 'Portfolios' );
-		$portfolio->register();
+		$portfolio->init();
 	}
 }
 add_action( 'init', __NAMESPACE__ . '\backdrop_post_types_register_portfolio', 5 );
