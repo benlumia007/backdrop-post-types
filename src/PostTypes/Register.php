@@ -106,6 +106,7 @@ class Register extends PostTypesContracts {
 			'show_ui'      => true,
 			'rewrite'      => array(
 				'with_front' => false,
+				'slug' => $type,
 			),
 			'show_in_rest' => true,
 		);
